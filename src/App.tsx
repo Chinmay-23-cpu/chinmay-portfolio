@@ -412,12 +412,17 @@ export default function App() {
               viewport={{ once: true }}
               className="lg:col-span-3 glass-card p-8 md:p-10"
             >
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form
+                className="space-y-6"
+                 action="https://formspree.io/f/mlgpwnap"
+                   method="POST"
+                >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-white/40 uppercase tracking-widest">Name</label>
                     <input 
                       type="text" 
+                      name="name"
                       placeholder="John Doe"
                       className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 outline-none transition-all"
                     />
@@ -425,7 +430,8 @@ export default function App() {
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-white/40 uppercase tracking-widest">Email</label>
                     <input 
-                      type="email" 
+                      type="email"
+                      name="email" 
                       placeholder="john@example.com"
                       className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 outline-none transition-all"
                     />
@@ -433,7 +439,8 @@ export default function App() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-white/40 uppercase tracking-widest">Message</label>
-                  <textarea 
+                  <textarea
+                    name="message" 
                     rows={4}
                     placeholder="Your message here..."
                     className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 outline-none transition-all resize-none"
