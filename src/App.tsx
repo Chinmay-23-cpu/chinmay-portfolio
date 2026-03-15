@@ -417,6 +417,11 @@ export default function App() {
                  action="https://formspree.io/f/mlgpwnap"
                    method="POST"
                 >
+                   <input
+                      type="hidden"
+                        name="_next"
+                          value="https://chinmay-portfolio.vercel.app"
+  />
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-white/40 uppercase tracking-widest">Name</label>
