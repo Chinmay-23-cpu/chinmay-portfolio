@@ -52,6 +52,20 @@ const interests = [
   { name: 'Logical Puzzles', icon: <Brain className="w-5 h-5" /> },
 ];
 
+const projects = [
+  {
+    title: "Smart Dictionary",
+    desc: "Offline dictionary app built using Python and CustomTkinter.",
+    github: "https://github.com/Chinmay-23-cpu/Smart-Dictionary"
+  },
+  {
+    title: "AgriSmart",
+    desc: "Web platform for agricultural information.",
+    github: "https://github.com/Chinmay-23-cpu/AgriSmart"
+  },
+  
+];
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
@@ -326,7 +340,7 @@ export default function App() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
+            {projects.map((project, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -340,11 +354,16 @@ export default function App() {
                 </div>
                 <div className="p-6">
                   <div className="h-2 w-12 bg-cyan-500/20 rounded-full mb-4" />
-                  <h4 className="text-xl font-bold mb-2">Project {i}</h4>
-                  <p className="text-sm text-white/40 mb-6">Coming Soon</p>
-                  <div className="flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-wider">
-                    <Github className="w-4 h-4" /> Placeholder
-                  </div>
+                  <h4 className="text-xl font-bold mb-2">{project.title}</h4>
+                  <p className="text-sm text-white/40 mb-6">{project.desc}</p>
+                  <a
+                   href={project.github}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-wider hover:underline"
+                  >
+                 <Github className="w-4 h-4" /> View Code
+                 </a>
                 </div>
               </motion.div>
             ))}
