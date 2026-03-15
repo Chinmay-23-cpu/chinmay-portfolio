@@ -443,6 +443,16 @@ export default function App() {
                       <p className="font-medium">Chinmay Bhat</p>
                     </div>
                   </a>
+                  <a href="https://github.com/Chinmay-23-cpu" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white group-hover:bg-gray-800 transition-all">
+                      <Github className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-white/40 uppercase font-bold tracking-widest mb-1">GitHub</p>
+                    <p className="font-medium">Chinmay-23-cpu</p>
+                    </div>
+                  </a>
+
                 </div>
               </motion.div>
               
