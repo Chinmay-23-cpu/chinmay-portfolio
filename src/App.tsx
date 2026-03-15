@@ -434,7 +434,7 @@ export default function App() {
                       <p className="font-medium">bhatchinmay172@gmail.com</p>
                     </div>
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
+                  <a href="https://www.linkedin.com/in/chinmay-bhat-840b9532a" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
                     <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
                       <Linkedin className="w-6 h-6" />
                     </div>
