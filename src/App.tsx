@@ -6,6 +6,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import profile from "./assets/profile.jpg";
+import smartDictionary from "./assets/smart-dictionary.png";
+import agriSmart from "./assets/agrismart.jpg";
 import { 
   Github, 
   Linkedin, 
@@ -52,16 +54,25 @@ const interests = [
   { name: 'Logical Puzzles', icon: <Brain className="w-5 h-5" /> },
 ];
 
-const projects = [
+type Project = {
+  title: string;
+  desc: string;
+  github: string;
+  image: string;
+};
+
+const projects: Project[]= [
   {
     title: "Smart Dictionary",
     desc: "Offline dictionary app built using Python and CustomTkinter.",
-    github: "https://github.com/Chinmay-23-cpu/Smart-Dictionary"
+    github: "https://github.com/Chinmay-23-cpu/Smart-Dictionary",
+    image: smartDictionary 
   },
   {
     title: "AgriSmart",
     desc: "Web platform for agricultural information.",
-    github: "https://github.com/Chinmay-23-cpu/AgriSmart"
+    github: "https://github.com/Chinmay-23-cpu/AgriSmart",
+    image: agriSmart 
   },
   
 ];
@@ -348,9 +359,12 @@ export default function App() {
                 viewport={{ once: true }}
                 className="glass-card overflow-hidden group"
               >
-                <div className="aspect-video bg-white/5 flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <Briefcase className="w-12 h-12 text-white/10 group-hover:text-cyan-400/50 transition-colors" />
+                <div className="aspect-video overflow-hidden relative">
+                <img
+                 src={project.image}
+                 alt={project.title}
+                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 </div>
                 <div className="p-6">
                   <div className="h-2 w-12 bg-cyan-500/20 rounded-full mb-4" />
