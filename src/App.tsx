@@ -455,9 +455,9 @@ export default function App() {
             © {new Date().getFullYear()} Chinmay Bhat. Built with React & Tailwind.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-white/40 hover:text-cyan-400 transition-colors"><Github className="w-5 h-5" /></a>
-            <a href="#" className="text-white/40 hover:text-blue-400 transition-colors"><Linkedin className="w-5 h-5" /></a>
-            <a href="#" className="text-white/40 hover:text-red-400 transition-colors"><Mail className="w-5 h-5" /></a>
+            <a href="https://github.com/Chinmay-23-cpu" className="text-white/40 hover:text-cyan-400 transition-colors"></a>
+            <a href="https://www.linkedin.com/in/chinmay-bhat-840b9532a" className="text-white/40 hover:text-blue-400 transition-colors"></a>
+            <a href="mailto:bhatchinmay172@gmail.com" className="text-white/40 hover:text-red-400 transition-colors"></a>
           </div>
         </div>
       </footer>
