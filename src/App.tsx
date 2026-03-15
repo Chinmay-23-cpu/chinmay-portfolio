@@ -55,6 +55,7 @@ const interests = [
 export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formStatus, setFormStatus] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,6 +76,28 @@ export default function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+  const data = new FormData(form);
+
+  const response = await fetch("https://formspree.io/f/mlgpwnap", {
+    method: "POST",
+    body: data,
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (response.ok) {
+    setFormStatus("SUCCESS");
+    form.reset();
+  } else {
+    setFormStatus("ERROR");
+  }
+};
 
   return (
     <div className="min-h-screen relative overflow-x-hidden">
@@ -412,11 +435,7 @@ export default function App() {
               viewport={{ once: true }}
               className="lg:col-span-3 glass-card p-8 md:p-10"
             >
-              <form
-                className="space-y-6"
-                 action="https://formspree.io/f/mlgpwnap"
-                   method="POST"
-                >
+              <form className="space-y-6" onSubmit={handleSubmit}>
                    <input
                       type="hidden"
                       name="_next"
