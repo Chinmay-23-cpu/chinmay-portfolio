@@ -56,6 +56,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
   const [formStatus, setFormStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,6 +81,8 @@ export default function App() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
+  setLoading(true);
+
   const form = e.currentTarget;
   const data = new FormData(form);
 
@@ -97,6 +100,8 @@ export default function App() {
   } else {
     setFormStatus("ERROR");
   }
+
+  setLoading(false);
 };
 
   return (
@@ -470,9 +475,25 @@ export default function App() {
                     className="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:bg-white/10 outline-none transition-all resize-none"
                   />
                 </div>
-                <button className="w-full py-4 rounded-xl bg-cyan-500 text-black font-bold flex items-center justify-center gap-2 hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20">
-                  Send Message <Send className="w-4 h-4" />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 rounded-xl bg-cyan-500 text-black font-bold flex items-center justify-center gap-2 hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20 disabled:opacity-50"
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                  {!loading && <Send className="w-4 h-4" />}
                 </button>
+                {formStatus === "SUCCESS" && (
+                  <p className="text-green-400 text-center mt-4">
+                   Message sent successfully! 🚀
+                  </p>
+                 )}
+
+                 {formStatus === "ERROR" && (
+                 <p className="text-red-400 text-center mt-4">
+                 Something went wrong. Please try again.
+                 </p>
+                 )}
               </form>
             </motion.div>
           </div>
